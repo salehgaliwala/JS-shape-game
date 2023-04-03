@@ -1,0 +1,340 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/utils/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/yzt0oos.css">
+    <style>
+        #shape-1drop {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+        }
+
+       #shape-2drop {
+    position: absolute;
+    left: 133px;
+    bottom: 0px;
+}
+
+        #shape-3drop {
+            position: absolute;
+            left: 66.6px;
+            bottom: 43.2px;
+        }
+
+        #shape-4drop {
+    position: absolute;
+    left: 166.8px;
+    bottom: 43.2px;
+}
+
+        #shape-5drop {
+    position: absolute;
+    left: 67.2px;
+    bottom: 87px;
+}
+
+       #shape-6drop {
+    position: absolute;
+    left: 133.8px;
+    bottom: 130.2px;
+}
+
+        #shape-7drop {
+    position: absolute;
+    left: 133.8px;
+    bottom: 174px;
+}
+
+
+        .boxContainer {
+            width: 100%;
+            display: block;
+            height: 420px;
+            position: relative;
+            margin: 0px auto;
+        }
+    
+        .drag-item img {
+    max-width: 150px;
+}
+         .pick-container{max-width: 500px;margin: 70px auto;max-width: 500px}
+  
+         #shape-1-img{position: absolute;transform: rotate(25deg)}
+         #shape-2-img{position: absolute;transform: rotate(55deg)}
+         #shape-3-img{position: absolute;transform: rotate(75deg)}
+         #shape-4-img{position: absolute;transform: rotate(-25deg);}
+         #shape-5-img{position: absolute;transform: rotate(-85deg);}
+         #shape-6-img{position: absolute;transform: rotate(33deg)}
+         #shape-7-img{position: absolute;transform: rotate(-90deg)}
+         #shape-1{width:150px;height: 101px;}
+         #shape-2{width:150px;height: 34px;}
+         #shape-3{width:150px;height: 53px;}
+         #shape-4{width:150px;height: 101px;}
+         #shape-5{width:150px;height: 80px;}
+         #shape-6{width:150px;height: 71px;}
+         #shape-7{width:150px;height: 105px;}
+         .modal-result {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            padding: 20px;
+            text-align: center;
+
+            max-width: 200px;
+
+  
+}
+span {
+    font-size: 40px;
+    color: #000;
+    font-weight: bold;
+  }
+
+.correct {
+  background: transparent;
+  opacity: 0;
+    font-family: "blithe", sans-serif;
+font-weight: 400;
+    color:#50bfd1;
+font-style: normal;
+}
+.wrong {
+  background: transparent;
+  opacity: 0;
+  color:#ce5cb4;
+    font-family: "blithe", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+#wrongText{color:#ce5cb4}
+    </style>
+
+</head>
+
+<body>
+    <div class="correct modal-result">
+        <span id="resultText">Perfect!</span>
+    </div>
+    <div class="wrong modal-result">
+        <span id="wrongText">Try again...</span>
+    </div>
+    <main>
+        <div class="boxContainer">
+            <div id="shape-1drop" class="item-drop">
+                <img src="shape-1-drop.png" id="shape-1drop-img" data-text="Piece 1"/>
+            </div>
+            <div id="shape-2drop" class="item-drop" >
+                <img src="shape-2-drop.png" id="shape-2drop-img" data-text="Piece 2"/>
+            </div>
+            <div id="shape-3drop" class="item-drop">
+                <img src="shape-3-drop.png"  id="shape-3drop-img" data-text="Piece 3"/>
+            </div>
+            <div id="shape-4drop" class="item-drop" >
+                <img src="shape-4-drop.png" id="shape-4drop-img" data-text="Piece 4"/>
+            </div>
+            <div id="shape-5drop" class="item-drop" >
+                <img src="shape-5-drop.png" id="shape-5drop-img" data-text="Piece 5"/>
+            </div>
+            <div id="shape-6drop" class="item-drop" >
+                <img src="shape-6-drop.png" id="shape-6drop-img" data-text="Piece 6"/>
+            </div>
+            <div id="shape-7drop" class="item-drop" >
+                <img src="shape-7-drop.png" id="shape-7drop-img" data-text="Piece 7"/>
+            </div>
+        </div>
+        <div class="winner">
+
+        </div>
+        <div class="pick-container" style="display: flex;">
+            <div class="col-1 drag-item" id="shape-1">
+                <img src="passion.png" id="shape-1-img"/>
+            </div>
+            <div class="col-1 drag-item" id="shape-2">
+                <img src="trust.png" id="shape-2-img"/>
+            </div>
+            <div class="col-1 drag-item" id="shape-3">
+                <img src="team.png" id="shape-3-img"/>
+            </div>
+            <div class="col-1 drag-item" id="shape-4">
+                <img src="grit.png" id="shape-4-img"/>
+            </div>
+            <div class="col-1 drag-item" id="shape-5">
+                <img src="curiosity.png" id="shape-5-img"/>
+            </div>
+            <div class="col-1 drag-item" id="shape-6">
+                <img src="purpose.png" id="shape-6-img" />
+            </div>
+            <div class="col-1 drag-item" id="shape-7">
+                <img src="growth-mindset.png" id="shape-7-img"/>
+            </div>
+
+        </div>
+    </main>
+    <div class="correct modal-result">
+        <span></span>
+    </div>
+    <div class="wrong modal-result">
+        <span id="wrongText"></span>
+    </div>
+     <div class="winner">
+        <span>Game Over!</span>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var selectAll = function (s) {
+                return document.querySelectorAll(s);
+            }
+
+            var droppables = selectAll('.item-drop');
+            var totalItems = droppables.length;
+            var totalHits = 0;
+
+            TweenMax.staggerFrom('.item-drop', .2, {
+                scale: 3,
+                opacity: 0,
+            }, .4);
+            TweenMax.staggerFrom('.drag-item', .5, {
+                y: -20,
+                opacity: 0
+            }, .6);
+
+            Draggable.create(".drag-item", {
+                bounds: 'main',
+                edgeResistance: 0.85,
+                onPress: function () {
+                    this.startX = this.x,
+                        this.startY = this.y,
+                        this.offsetTop = this.startY - this.target.offsetTop;
+                    this.offsetLeft = this.startX - this.target.offsetLeft;
+                },
+                onDragStart: function(){
+                    var droppableOBJ = this.target;
+                    document.getElementById(droppableOBJ.id + "-img").style.transform = "rotate(0deg)";
+
+
+                },
+                onDragEnd: function () {
+                    var dragThing = this;
+                    var i = droppables.length;
+
+                    while (--i > -1) {
+                        if (this.hitTest(droppables[i], '50%')) {
+                            var result = onDrop(this.target, droppables[i], dragThing);
+                           
+                           // draggedOBJ.style.transform="rotate(0deg)";
+                            if (result == 'correct') {
+                                totalHits++;
+                                if (totalHits == totalItems) {
+                                    winGame();
+                                }
+                            }
+                            break;
+                        } else {
+                            TweenMax.to(dragThing.target, .5, {
+                                x: dragThing.startX,
+                                y: dragThing.startY
+                            })
+                        }
+                    }
+                }
+            });
+        });
+
+        function onDrop(dragged, dropped, dragObj) {
+            console.log(dropped.id + "-img");
+            console.log(dragged.id + "-img");
+            var textObj = document.getElementById(dropped.id + "-img");
+            var text = textObj.getAttribute('data-text');
+            if ((dragged.id + "drop") == dropped.id) {
+                 document.getElementById("resultText").innerHTML= '<span>'+text+'</span>';
+                document.getElementById(dropped.id +"-img").src =   document.getElementById(dragged.id + "-img").src ;
+                dragged.style.opacity="0";
+                dragged.style.visibility="hidden";
+
+                TweenMax.to(dragged, .5, {
+                    y: dragObj.offsetTop + dropped.offsetTop + addDimension('y'),
+                    x: dragObj.offsetLeft + dropped.offsetLeft + addDimension('x'),
+                    onComplete: function () {
+                        TweenMax.to(dragged, .5, {
+                            delay: .5,
+                            opacity: 0,
+                            visibility: "hidden"
+                        });
+                       /* TweenMax.to(dropped.childNodes[1], .5, {
+                            delay: .5,
+                            onStart: function () {
+                                for (var i = 0; i < dropped.childNodes[1].childNodes.length; i++) {
+                                    TweenMax.to(dropped.childNodes[1].childNodes[i], .5, { fill: '#C65C3B' });
+                                }
+                            }
+                        });*/
+
+                        TweenMax.to(".correct", 1, {
+                            opacity: .7,
+                            top: "20",
+                            ease: Elastic.easeOut,
+                            onComplete: function () {
+                                TweenMax.to(".correct", .9, {
+                                    delay: .9,
+                                    opacity: 0,
+                                    top: "0"
+                                })
+                               
+                            }
+                        });
+                    }
+                });
+
+                return 'correct';
+            } else {
+                TweenMax.to(dragged, .5, {
+                    x: dragObj.startX,
+                    y: dragObj.startY
+                });
+                TweenMax.to(".wrong", 1, {
+                    opacity: .7,
+                    top: "20px",
+                    ease: Bounce.easeOut,
+                    onComplete: function () {
+                        TweenMax.to(".wrong", .5, {
+                            delay: .5,
+                            opacity: 0,
+                            top: "0"
+                        })
+                    }
+                });
+            }
+        }
+
+        function winGame() {
+            TweenMax.to('.boxContainer', .5, {
+               // backgroundColor: '#27ae60'
+            });
+            TweenMax.to('.winner', .5, {
+                opacity: 1,
+                marginTop: "-100px"
+            });
+            TweenMax.staggerTo('.svgColor', .5, {
+                delay: 2,
+                fill: "#2ecc71"
+            }, .2)
+        }
+
+        function addDimension(cardinal) {
+
+            if (cardinal == 'y') {
+                return (window.screen.width <= 480) ? 0 : 20;
+            } else {
+                return (window.screen.width <= 480) ? -2 : 10;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
